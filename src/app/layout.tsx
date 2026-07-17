@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 };
 
-export const viewport: Viewport = {
+export const viewport: Viewport = { 
   themeColor: '#161512',
   width: 'device-width',
   initialScale: 1,
