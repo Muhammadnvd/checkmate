@@ -14,6 +14,7 @@ interface GameState {
   selectedSquare: string | null;
   lastMove: { from: string; to: string } | null;
   moveHistoryIndex: number;
+  turn: Color;
   
   // Actions
   makeMove: (move: string | { from: string; to: string; promotion?: string }) => void;
@@ -64,6 +65,7 @@ export const useGameStore = create<GameState>()(
       selectedSquare: null,
       lastMove: null,
       moveHistoryIndex: -1,
+      turn: engine.turn,
 
       makeMove: (move) => {
         const result = engine.move(move);
@@ -78,6 +80,7 @@ export const useGameStore = create<GameState>()(
               lastMove: { from: result.from, to: result.to },
               selectedSquare: null,
               moveHistoryIndex: newHistory.length - 1,
+              turn: engine.turn,
             };
           });
 
@@ -101,6 +104,7 @@ export const useGameStore = create<GameState>()(
           history: engine.history,
           status: engine.getStatus(),
           moveHistoryIndex: engine.history.length - 1,
+          turn: engine.turn,
         });
       },
 
@@ -118,6 +122,7 @@ export const useGameStore = create<GameState>()(
           lastMove: null,
           selectedSquare: null,
           moveHistoryIndex: -1,
+          turn: engine.turn,
         });
       },
 
@@ -135,6 +140,7 @@ export const useGameStore = create<GameState>()(
             lastMove: null,
             selectedSquare: null,
             moveHistoryIndex: -1,
+            turn: engine.turn,
           });
           return true;
         }
