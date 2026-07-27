@@ -8,7 +8,7 @@ import {
   FaChessPawn, 
   FaChessKnight, 
   FaChessBishop, 
-  FaChessRook, 
+  FaChessRook,   
   FaChessQueen, 
   FaChessKing 
 } from 'react-icons/fa6';
